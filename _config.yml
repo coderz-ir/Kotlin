@@ -1,0 +1,46 @@
+name: کاتلین فارسی
+description: کاتلین
+meta_description: "کاتلین"
+
+aboutPage: true
+
+gems: [jekyll-paginate]
+
+highlighter: rouge
+
+paginate: 20
+baseurl: /
+domain_name: 'http://kotlin.ir'
+google_analytics: 'UA-61670451-1'
+disqus_shortname: 'kotlin-ir'
+
+# Details for the RSS feed generator
+#url:            'http://feed.kotlin.ir'
+
+permalink:       /:title/
+
+defaults:
+    -
+        scope:
+            path: "" # empty string for all files
+            type: pages
+        values:
+            layout: default
+    -
+        scope:
+            path: "" # empty string for all files
+            type: posts
+        values:
+            layout: post
+
+authors:
+    saeiddrv:
+        name: سعید درویش
+        email_hash: d4b6c032dfec486c1ee33ebfb69db250
+        description:
+        twitter: saeiddrv
+    sajad:
+        name: سجاد شکری
+        email_hash: 1f87b1789e72b1b2e317eb066ef3dec7
+        description: توسعه دهنده
+        twitter: sajad_shokri

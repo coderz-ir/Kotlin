@@ -1,0 +1,65 @@
+---
+layout: default
+disqus: true
+archive: true
+---
+
+
+{% assign author = site.authors[page.author] %}
+<article class="post">
+    <header>
+        <h1>{{ page.title }}</h1>
+        <h2 class="headline">
+            <script>
+                moment.loadPersian();
+                var full_date = moment('{{ page.date }}', 'YYYY-M-D').format('dddd, jD jMMMM jYYYY');
+                document.write(full_date);
+            </script>
+        </h2>
+    </header>
+    <section id="post-body">
+        {{content}}
+    </section>
+</article>
+<footer id="post-meta" class="clearfix">
+    <a href="http://twitter.com/{{author.twitter}}">
+        <img class="avatar" src="http://www.gravatar.com/avatar/{{author.email_hash}}">
+        <div>
+            <span class="dark">{{ author.name }}</span>
+            <span>{{ author.description }}</span>
+        </div>
+    </a>
+
+    <section id="sharing">
+        {% include share.html %}
+    </section>
+</footer>
+
+<!-- Disqus comments -->
+{% if page.disqus %}
+    <div class="archive readmore">
+        <h3>دیدگاه‌ها</h3>
+        {% include disqus.html %}
+    </div>
+{% endif %}
+
+<!-- Archive post list -->
+{% if page.archive %}
+    <ul id="post-list" class="archive readmore">
+        <h3>نوشته‌های دیگر</h3>
+        {% for post in site.posts %}
+            <li>
+                <a href="{{ post.url }}">{{ post.title }}
+                    <aside class="dates">
+                        <script>
+                             var date = moment('{{ post.date }}', 'YYYY-M-D').format('jD jMMMM');
+                             document.write(date);
+                         </script>
+                     </aside>
+                </a>
+            </li>
+        {% endfor %}
+    </ul>
+{% endif %}
+
+{% include footer.html %}
